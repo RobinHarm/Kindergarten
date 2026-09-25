@@ -30,7 +30,7 @@ namespace Kindergarten.ApplicationServices.Services
             domain.ChildrenCount = dto.ChildrenCount;
             domain.KinderGartenName = dto.KinderGartenName;
             domain.TeacherName = dto.TeacherName;
-            domain.CreatedAt = dto.CreatedAt;
+            domain.CreatedAt = DateTime.Now;
             domain.UpdatedAt = dto.UpdatedAt;
 
             await _context.Childrens.AddAsync(domain);
