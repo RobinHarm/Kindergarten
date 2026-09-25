@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -27,11 +27,6 @@
 		<ProjectReference Include="..\Kindergarten.Core\Kindergarten.Core.csproj" />
 		
 	</ItemGroup>
-		  
-
-  <ItemGroup>
-    <Folder Include="Views\Children\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Kindergarten.ApplicationServices\Kindergarten.ApplicationServices.csproj" />

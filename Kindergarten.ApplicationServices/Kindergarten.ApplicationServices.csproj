@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kindergarten.Core\Kindergarten.Core.csproj" />
+    <ProjectReference Include="..\Kindergarten.Data\Kindergarten.Data.csproj" />
+  </ItemGroup>
+
 </Project>
