@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Kindergarten.ApplicationServices/Kindergarten.ApplicationServices.csproj" />
+  <Project Path="Kindergarten.Core/Kindergarten.Core.csproj" />
+  <Project Path="Kindergarten.Data/Kindergarten.Data.csproj" />
   <Project Path="Kindergarten/Kindergarten.csproj" />
 </Solution>
