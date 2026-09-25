@@ -9,5 +9,7 @@ namespace Kindergarten.Core.ServiceInterface
     public interface IChildrenServices
     {
         Task<Children> Create(ChildrenDto dto);
+        Task<Children> DetailsAsync(Guid id);
+        Task<Children> Update(ChildrenDto dto);
     }
 }

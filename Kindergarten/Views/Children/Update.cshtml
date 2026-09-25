@@ -1,7 +1,7 @@
-﻿@model Kindergarten.Models.Children.ChildrenCreateViewModel
+﻿@model Kindergarten.Models.Children.ChildrenUpdateViewModel
 
 <div>
-    <h1>Children Create</h1>
+    <h1>Children Update</h1>
 </div>
 
 <form method="post" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
 <div>
 
 
-<input asp-action="create" asp-controller="children" type="submit" class="btn btn-primary" value="Create" />
+<input asp-action="Update" asp-controller="children" type="submit" class="btn btn-primary" value="Update" />
 <a asp-action="Index" asp-controller="children" class="btn btn-secondary">Back to List</a>
 </form>
 </div>

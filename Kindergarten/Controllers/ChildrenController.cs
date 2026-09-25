@@ -62,5 +62,52 @@ namespace Kindergarten.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var children = await _childrenService.DetailsAsync(id);
+
+            if (children == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new ChildrenDetailsViewModel();
+
+            vm.Id = children.Id;
+            vm.GroupName = children.GroupName;
+            vm.ChildrenCount = children.ChildrenCount;
+            vm.KinderGartenName = children.KinderGartenName;
+            vm.TeacherName = children.TeacherName;
+            vm.CreatedAt = children.CreatedAt;
+            vm.UpdatedAt = children.UpdatedAt;
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid Id)
+        {
+            var children = await _childrenService.DetailsAsync(Id);
+
+            if (children == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new ChildrenUpdateViewModel();
+
+            vm.Id = children.Id;
+            vm.GroupName = children.GroupName;
+            vm.ChildrenCount = children.ChildrenCount;
+            vm.KinderGartenName = children.KinderGartenName;
+            vm.TeacherName = children.TeacherName;
+            vm.CreatedAt = children.CreatedAt;
+            vm.UpdatedAt = children.UpdatedAt;
+            
+            return View(vm);
+        }
+
+        
     }
 }
