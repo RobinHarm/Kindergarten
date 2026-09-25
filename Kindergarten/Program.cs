@@ -1,4 +1,6 @@
+using Kindergarten.Core.ServiceInterface;
 using Kindergarten.Data;
+using Kindergarten.ApplicationServices.Services;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,7 @@ namespace Kindergarten
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
 
 
             builder.Services.AddDbContext<KindergartenContext>(options =>
