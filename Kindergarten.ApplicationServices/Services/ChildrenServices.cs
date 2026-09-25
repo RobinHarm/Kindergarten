@@ -5,6 +5,7 @@ using Kindergarten.Core.Domain;
 using Kindergarten.Core.Dto;
 using Kindergarten.Core.ServiceInterface;
 using Kindergarten.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kindergarten.ApplicationServices.Services
 {
@@ -36,6 +37,14 @@ namespace Kindergarten.ApplicationServices.Services
             await _context.SaveChangesAsync();
 
             return domain;
+        }
+
+        public async Task<Children> DetailsAsync(Guid id)
+        {
+            var result = await _context.Childrens
+                .FirstOrDefaultAsync(x => x.Id == id);
+            
+            return result;
         }
     }
 }

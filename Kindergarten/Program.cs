@@ -13,9 +13,9 @@ namespace Kindergarten
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorPages();
+            builder.Services.AddControllersWithViews();
 
-
+            builder.Services.AddScoped<IChildrenServices, ChildrenServices>();
 
             builder.Services.AddDbContext<KindergartenContext>(options =>
                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
