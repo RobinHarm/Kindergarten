@@ -107,7 +107,26 @@ namespace Kindergarten.Controllers
             
             return View(vm);
         }
-
+        [HttpPost]
+        public async Task<IActionResult> Update(ChildrenUpdateViewModel vm)
+        {
+            var dto = new ChildrenDto
+            {
+                Id = vm.Id,
+                GroupName = vm.GroupName,
+                ChildrenCount = vm.ChildrenCount,
+                KinderGartenName = vm.KinderGartenName,
+                TeacherName = vm.TeacherName,
+                CreatedAt = vm.CreatedAt,
+                UpdatedAt = vm.UpdatedAt
+            };
+            var result = await _childrenService.Update(dto);
+            if (result == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
         
     }
 }
