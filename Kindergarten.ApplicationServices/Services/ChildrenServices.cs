@@ -31,7 +31,7 @@ namespace Kindergarten.ApplicationServices.Services
             domain.KinderGartenName = dto.KinderGartenName;
             domain.TeacherName = dto.TeacherName;
             domain.CreatedAt = DateTime.Now;
-            domain.UpdatedAt = dto.UpdatedAt;
+            domain.UpdatedAt = DateTime.Now;
 
             await _context.Childrens.AddAsync(domain);
             await _context.SaveChangesAsync();
@@ -54,12 +54,23 @@ namespace Kindergarten.ApplicationServices.Services
             children.ChildrenCount = dto.ChildrenCount;
             children.KinderGartenName = dto.KinderGartenName;
             children.TeacherName = dto.TeacherName;
-            children.CreatedAt = DateTime.Now;
-            children.UpdatedAt = dto.UpdatedAt;
+            children.CreatedAt = dto.CreatedAt;
+            children.UpdatedAt = DateTime.Now;
 
             _context.Childrens.Update(children);
             await _context.SaveChangesAsync();
             return children;
+        }
+
+        public async Task<Children> Delete(Guid id)
+        {
+            var result = await _context.Childrens
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            _context.Childrens.Remove(result);
+            await _context.SaveChangesAsync();
+
+            return result;
         }
     }
 }

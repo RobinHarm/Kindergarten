@@ -11,5 +11,6 @@ namespace Kindergarten.Core.ServiceInterface
         Task<Children> Create(ChildrenDto dto);
         Task<Children> DetailsAsync(Guid id);
         Task<Children> Update(ChildrenDto dto);
+        Task<Children> Delete(Guid id);
     }
 }

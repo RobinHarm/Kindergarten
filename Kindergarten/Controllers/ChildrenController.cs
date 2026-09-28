@@ -127,6 +127,40 @@ namespace Kindergarten.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-        
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var children = await _childrenService.DetailsAsync(id);
+
+            if (children == null)
+            {
+                return NotFound();
+            }
+            
+            var vm = new ChildrenDeleteVIewModel();
+            
+            vm.Id = children.Id;
+            vm.GroupName = children.GroupName;
+            vm.ChildrenCount = children.ChildrenCount;
+            vm.KinderGartenName = children.KinderGartenName;
+            vm.TeacherName = children.TeacherName;
+            vm.CreatedAt = children.CreatedAt;
+            vm.UpdatedAt = children.UpdatedAt;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        {
+            var result = await _childrenService.Delete(id);
+
+            if (result == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
